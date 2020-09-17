@@ -1,7 +1,9 @@
 package controller;
 
-import java.nio.Buffer;
+
 import java.util.Random;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -12,23 +14,27 @@ public class CarThread extends Thread{
 	private JLabel car;
 	private JTextField winner;
 	private JTextField looser;
+	private JButton btnRun;
 	private int position;
 
 	
-	public CarThread(int distance, int maxVelocity, JLabel car, int position, JTextField winner, JTextField looser){
+	public CarThread(int distance, int maxVelocity, JLabel car, int position, JTextField winner, JTextField looser, JButton btnRun){
 		this.distance = distance;
 		this.maxVelocity = maxVelocity;
 		this.car = car;
 		this.position = position;
 		this.winner = winner;
 		this.looser = looser;
+		this.btnRun = btnRun;
 	}
 	
 	public void run(){
 		race();
+		
 	}
 	
 	private void race(){
+		btnRun.setEnabled(false);
 		Random random = new Random();
 		int sum = 34;
 		while(distance>=sum){
@@ -45,6 +51,7 @@ public class CarThread extends Thread{
 			
 		}
 		showRanking();
+		btnRun.setEnabled(true);
 	}
 	
 	private void showRanking(){

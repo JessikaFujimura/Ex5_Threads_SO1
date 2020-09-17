@@ -118,8 +118,8 @@ public class Screen extends JFrame {
 		ActionListener startRacer = new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Thread car1 = new CarThread(300,10, CarOne, 47, Winner, Looser);
-				Thread car2 = new CarThread(300,10,CarTwo,97,  Winner, Looser);
+				Thread car1 = new CarThread(300,10, CarOne, 47, Winner, Looser, btnRun);
+				Thread car2 = new CarThread(300,10,CarTwo,97,  Winner, Looser, btnRun);
 				car1.start();
 				car2.start();
 				
